@@ -1,0 +1,48 @@
+
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+	
+
+<div class="shelves index">
+	<h2>Shelves</h2>
+	
+
+	
+	<!-- Making a table -->
+	<table class="listing" summary="Shelf list">
+	<tr class="header">
+		<!--  <th>#</th>  -->
+		<th>Shelf</th>
+		<!-- <th>Shop</th>  -->
+		<th>Candies</th> 
+		<th>Actions</th>
+		
+	</tr>
+	<% @shelves.each do |shelf| %>
+	<tr>
+		<!-- <td><%= shelf.id %></td> -->
+		<td><%= shelf.name %></td>
+		<!-- <td><%= shelf.shop %></td> -->
+		<td class="center"><%=shelf.candies.size %></td>
+		
+		<td class="actions">
+			
+			<%= link_to("Show", shelf_path(shelf, :shop_id => @shop.id), :class => 'action show') %>
+			<%= link_to("Edit", edit_shelf_path(shelf, :shop_id => @shop.id), :class => 'action edit') %>
+			<%= link_to("Delete",delete_shelf_path(shelf, :shop_id => @shop.id) , :class => 'action delete') %>
+		</td>
+	
+	</tr>
+	<% end %>
+</table>
+
+</div>
+
+<button class= "btn btn-info"> <%= link_to 'Add new Shelf', new_shelf_path(:shop_id => @shop.id), :class => 'action new' %></button>
+
+<button class= "btn btn-info"> <%= link_to 'Back to Candy Shops', shops_path, :class => 'back-link' %></button>
+
+

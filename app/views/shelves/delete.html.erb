@@ -1,0 +1,19 @@
+<% @page_title = "Delete Shelf" %>
+
+<button class= "btn btn-info"> <%= link_to 'Back to Shelf list', shelves_path(:shop_id => @shop.id), :class => 'back-link' %></button>
+
+<div class="shelves delete">
+  <h2>Delete Shelf</h2>
+
+  <%= form_for(@shelf, :url => shelf_path(@shelf, :shop_id => @shop.id), :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this shelf?</p>
+
+    <p class="reference-name"><%= f.object.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Shelf") %>
+    </div>
+
+  <% end %>
+</div>

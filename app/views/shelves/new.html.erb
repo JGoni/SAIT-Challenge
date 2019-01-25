@@ -1,0 +1,32 @@
+<h1 style= "color:limegreen"> Add new Shelves! </h1>
+
+<div class = "shelves new">
+  <h2>Create Shelf </h2>
+
+  <%= form_for(@shelf, :url => shelves_path(:shop_id => @shop.id)) do |f| %>
+  
+    <table summary = "Shelf form fields">
+      <tr>
+        <th>Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+     <!-- <tr>
+        <th>Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr> -->
+      <tr>
+      <th>Shop ID</th>
+        <td><%= f.text_field(:shop_id) %></td>
+      </tr>
+       <tr>
+      
+    </table>
+  
+  <div class ="form-buttons">
+    <%= f.submit("Create Shelf") %>
+  </div>
+
+
+  <button class= "btn btn-info"> <%= link_to 'Back to Shelf list', shelves_path(:shop_id => @shop.id), :class => 'back-link' %></button>
+ 
+<% end %>

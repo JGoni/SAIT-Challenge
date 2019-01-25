@@ -1,0 +1,19 @@
+<% @candy_title = "Delete Candy" %>
+<%= link_to("<< Back to List", candies_path, :class => 'back-link') %>
+<div class="candies delete">
+  <h2>Delete Candy</h2>
+
+  <%= form_for(@candy, :url => candy_path(@candy, :shop_id => @shop.id), :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to delete this candy permanently ?</p>
+
+    <p class="reference-name"><%= f.object.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Candy") %>
+    </div>
+
+  <% end %>
+</div>
+
+

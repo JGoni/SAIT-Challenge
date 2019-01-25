@@ -1,0 +1,14 @@
+
+	<div class="shops delete">
+		<h2>Delete Shop</h2>
+		<%= form_for(@shop,  :method =>'delete') do |f| %>
+		<p> Are you sure about deleting this shop?</p>
+		<p class="reference-name"><%= f.object.name %></p>
+		<div class="form-buttons">
+			<%= f.submit("Delete Shop") %>
+		</div>
+
+		<% end %>
+	</div>
+
+	<%=link_to("<<Back to List", shop_path, :class => 'back-link')%>

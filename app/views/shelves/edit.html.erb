@@ -1,0 +1,34 @@
+<h1>Edit Shelf</h1>
+<div class="shelves edit">
+  <h2>Update Shelf</h2>
+
+  <%= form_for(@shelf, :url => shelf_path(@shelf, :shop_id => @shop.id)) do |f| %>
+
+    <table summary="Shelf form fields">
+      <tr>
+        <th> Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th> Shop ID : </th>
+        <td><%= f.text_field(:shop_id) %></td>
+      </tr>
+      <!-- <tr>
+        <th> Permalink : </th>
+        <td><%= f.text_field(:permalink) %></td>
+      </tr>
+      <tr>
+        <th> Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr> -->
+      
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Shelf") %>
+    </div>
+
+  <% end %>
+</div>
+
+<button class= "btn btn-info"> <%= link_to 'Back to Shelf list', shelves_path(:shop_id => @shop.id), :class => 'back-link' %></button>

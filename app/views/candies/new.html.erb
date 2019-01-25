@@ -1,0 +1,36 @@
+<h1 style= "color:limegreen"> Add new Candies! </h1>
+
+<div class = "candies new">
+  <h2>Create Candy </h2>
+
+  <%= form_for(@candy, :url => candies_path(:shop_id => @shop.id)) do |f| %>
+  
+    <table summary = "Candy form fields">
+      <tr>
+        <th>Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+      <th>Shop ID</th>
+        <td><%= f.text_field(:shop_id) %></td>
+      </tr>
+     <!-- <tr>
+        <th>Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr>  --> 
+      <th>Visible</th>
+        <td><%= f.check_box(:visible) %></td>
+      </tr>
+       
+    </table>
+  
+  <div class ="form-buttons">
+    <%= f.submit("Create Candy") %>
+  </div>
+
+
+
+  <button class= "btn btn-info"> <%= link_to 'Back to Candy list', candies_path(:shop_id => @shop.id), :class => 'back-link' %></button>
+
+<% end %>
+</div>

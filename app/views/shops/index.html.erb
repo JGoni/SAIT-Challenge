@@ -1,0 +1,45 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+<div class="shops index">
+	<h2>Shops</h2>
+	
+
+	
+	<!-- Making a table -->
+	<table class="listing" summary="Shop list">
+	<tr class="header">
+		 <!-- <th>#</th>  -->
+		<th>Shop</th>
+		<th>Shelves</th>
+		<th>Candies</th>
+		<th>Actions</th>
+		
+	</tr>
+	<% @shops.each do |shop| %>
+	<tr>
+		<!-- <td><%= shop.id %></td> -->
+		<td><%= shop.name %></td>
+		<td class="center"><%=shop.shelves.size %></td>
+		<td class="center"><%=shop.candies.size %></td>
+		<td class="actions">
+        	<%= link_to("View Shelves", shelves_path(:shop_id => shop.id), :class => 'action show') %>
+        	<%= link_to("View Candies", candies_path(:shop_id => shop.id), :class => 'action show') %>
+			<%= link_to("Show", shop_path(shop), :class => 'action show') %>
+			<%= link_to("Edit", edit_shop_path(shop), :class => 'action edit') %>
+			<%= link_to("Delete",delete_shop_path(shop) , :class => 'action delete') %>
+		</td>
+	
+	</tr>
+	<% end %>
+</table>
+
+
+
+
+</div>
+<button class= "btn btn-info"> <%= link_to 'Add New Shop', new_shop_path%></button>
+
+<button class= "btn btn-info"> <%= link_to 'Back to Home page', candyworld_home_path%></button>

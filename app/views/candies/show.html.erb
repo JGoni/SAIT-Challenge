@@ -1,0 +1,42 @@
+<h1>Candy Info</h1>
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+	
+
+<!-- <%=link_to("<<Back to List", shops_path, :class => 'back-link')%> -->
+
+
+	<div class = "candies show">
+		<h2> Show Candy</h2>
+
+
+		<table summary ="Candy's detail view">
+			<tr>
+				<th> Name : </th>
+				<td><%= @candy.name %></td>
+			</tr>
+			<!-- <tr>
+				<th> Position : </th>
+				<td><%= @candy.position %></td>
+			</tr> -->
+			<tr>
+			<th> Shop : </th>
+				<td><%= @candy.shop.name %></td>
+			</tr>	
+		
+				<th> Created : </th>
+				<td><%=@candy.created_at %></td>
+			</tr>
+			<tr>
+				<th> Updated : </th>
+				<td><%= @candy.updated_at %></td>
+			</tr>
+		</table>
+	</div>
+
+	
+
+	<button class= "btn btn-info"> <%= link_to 'Back to Candy list', candies_path(:shop_id => @shop.id), :class => 'back-link' %></button>

@@ -1,0 +1,27 @@
+<div class = "shops edit">
+  <h2>Update Shop </h2>
+
+ <%= form_for(@shop) do |f| %>
+  
+    <table summary = "Shop form fields">
+      <tr>
+        <th>Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+     <tr>
+        <th>Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr>
+    </table>
+  
+  <div class ="form-buttons">
+    <%= f.submit("Update Shop") %>
+  </div>
+
+
+
+
+  <button class= "btn btn-info"> <%= link_to 'Back to List', shops_path%></button>
+<% end %>
+
+</div>

@@ -1,0 +1,47 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+	
+
+
+	<div class = "shops show">
+		<h2> Show Shops</h2>
+
+
+		<table summary ="Shop detail view">
+			<tr>
+				<th> Name : </th>
+				<td><%= @shop.name %></td>
+			</tr>
+			<tr>
+				<th> Position : </th>
+				<td><%= @shop.position %></td>
+			</tr>
+
+			<tr>
+				<th> Shelves # : </th>
+				<td><%= @shop.shelves.size %></td>
+			</tr>
+			<tr>
+				<th> Candy # : </th>
+				<td><%= @shop.candies.size %></td>
+			</tr>
+			
+			
+			
+
+			<tr>
+				<th>Created :</th>
+				<td><%=@shop.created_at %></td>
+			</tr>
+			<tr>
+				<th>Updated :</th>
+				<td><%= @shop.updated_at %></td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<button class= "btn btn-info"> <%=link_to("<<Back to List", shops_path, :class => 'back-link')%></button>

@@ -1,0 +1,32 @@
+<div class="candies edit">
+  <h2>Update Candy</h2>
+
+  <%= form_for(@candy, :url => candy_path(@candy, :shop_id => @shop.id)) do |f| %>
+
+    <table summary="Candy form fields">
+      <tr>
+        <th>Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+      <th>Shop ID</th>
+        <td><%= f.text_field(:shop_id) %></td>
+      </tr>
+     <tr>
+        <th>Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr>  
+      <th>Visible</th>
+        <td><%= f.check_box(:visible) %></td>
+      </tr>
+      
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Candy") %>
+    </div>
+
+  <% end %>
+</div>
+
+<button class= "btn btn-info"> <%= link_to 'Back to Candy list', candies_path(:shop_id => @shop.id), :class => 'back-link' %></button>

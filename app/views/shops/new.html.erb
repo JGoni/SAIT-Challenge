@@ -1,0 +1,30 @@
+<h1 style= "color:limegreen"> Add new Shops! </h1>
+
+<div class = "shops new">
+  <h2>Create Shop </h2>
+
+  <%= form_for(@shop) do |f| %>
+  
+    <table summary = "Shop form fields">
+      <tr>
+        <th>Name : </th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <!-- <tr>
+        <th>Position : </th>
+        <td><%= f.text_field(:position) %></td>
+      </tr> -->
+    </table>
+  
+  <div class ="form-buttons">
+    <%= f.submit("Create Shop") %>
+  </div>
+
+    <button class= "btn btn-info"> <%= link_to 'Back to Home page', candyworld_home_path%></button>
+
+
+
+<% end %>
+
+
+

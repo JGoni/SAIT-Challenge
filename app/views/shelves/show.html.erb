@@ -1,0 +1,43 @@
+
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+	
+
+<!-- <%=link_to("<<Back to List", shops_path, :class => 'back-link')%> -->
+
+
+	<div class = "shelves show">
+		<h2> Show Shelves</h2>
+
+
+		<table summary ="Shelf detail view">
+			<tr>
+				<th> Name : </th>
+				<td><%= @shelf.name %></td>
+			</tr>
+			<!-- <tr>
+				<th> Position : </th>
+				<td><%= @shelf.position %></td>
+			</tr> -->
+			<th>Shop : </th>
+				<td><%= @shelf.shop.name %></td>
+				<tr>
+					<th>Candy : </th>
+				<td><%= @shelf.candies.size %></td>
+			</tr>
+
+			<tr>
+				<th> Created : </th>
+				<td><%=@shelf.created_at %></td>
+			</tr>
+			<tr>
+				<th> Updated : </th>
+				<td><%= @shelf.updated_at %></td>
+			</tr>
+		</table>
+	</div>
+
+	<button class= "btn btn-info"> <%= link_to 'Back to Shelf list', shelves_path(:shop_id => @shop.id), :class => 'back-link' %></button>

@@ -1,0 +1,48 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice]%>
+	</div>
+	<% end %>
+	
+
+<div class="candies index">
+	<h2>Candies</h2>
+	
+
+	
+	<!-- Making a table -->
+	<table class="listing" summary="Candy list">
+	<tr class="header">
+		  
+		<th>Candy</th>
+		<!-- <th>Shop</th>  -->
+		<th>Shelved/Unshelved</th> 
+		<th>Actions</th>
+		
+	</tr>
+	<% @candies.each do |candy| %>
+	<tr>
+		
+		<td><%= candy.name %></td>
+		<td><%=   %></td>
+
+		
+		<td class="actions">
+			
+			<%= link_to("Show", candy_path(candy, :shop_id => @shop.id), :class => 'action show') %>
+			<%= link_to("Edit", edit_candy_path(candy, :shop_id => @shop.id), :class => 'action edit') %>
+			<%= link_to("Delete",delete_candy_path(candy, :shop_id => @shop.id) , :class => 'action delete') %>
+		</td>
+	
+	</tr>
+	<% end %>
+</table>
+
+</div>
+<button class= "btn btn-info"> <%= link_to 'Add new Candy', new_candy_path(:shop_id => @shop.id), :class => 'action new' %></button>
+
+
+<button class= "btn btn-info"> <%= link_to 'Back to Candy Shop', shops_path, :class => 'back-link' %></button>
+
+
+
