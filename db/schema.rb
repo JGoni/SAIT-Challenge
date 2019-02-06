@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802170136) do
+ActiveRecord::Schema.define(version: 20190206011933) do
 
-  create_table "candies", force: :cascade do |t|
+  create_table "candies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", default: "", null: false
     t.integer "shop_id"
     t.integer "position"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180802170136) do
     t.index ["shop_id"], name: "index_candies_on_shop_id"
   end
 
-  create_table "shelves", force: :cascade do |t|
+  create_table "shelves", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", default: "", null: false
     t.integer "position"
     t.integer "shop_id"
@@ -35,9 +35,16 @@ ActiveRecord::Schema.define(version: 20180802170136) do
     t.index ["shop_id"], name: "index_shelves_on_shop_id"
   end
 
-  create_table "shops", force: :cascade do |t|
+  create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", default: "", null: false
     t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
